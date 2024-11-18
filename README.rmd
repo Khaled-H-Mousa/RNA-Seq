@@ -1,4 +1,4 @@
-```markdown
+```
 # RNA-Seq Analysis Pipeline
 
 This repository provides a complete RNA-Seq analysis pipeline, guiding through quality control, trimming, alignment, and quantification of reads. It is designed for reproducible and efficient analysis of RNA-Seq data.

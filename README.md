@@ -8,7 +8,8 @@ RNA-Seq analysis is a powerful approach for studying transcriptomics, enabling t
 2. **Read Trimming (Trimmomatic)**
 3. **Genome Indexing (STAR)**
 4. **Read Alignment (STAR)**
-5. **Feature Counting (featureCounts)**
+5. **Format Conversion (samtools)**
+6. **Feature Counting (featureCounts)**
 
 ---
 
@@ -18,6 +19,7 @@ The following tools are required to run the pipeline:
 - **[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/):** For quality control of raw sequencing reads.
 - **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic):** For trimming adapters and low-quality bases.
 - **[STAR](https://github.com/alexdobin/STAR):** For genome indexing and alignment.
+- **[samtools](http://www.htslib.org/):** For Manipulation of SAM/BAM files.
 - **[featureCounts](http://subread.sourceforge.net):** For read quantification.
 
 ### Input Requirements
@@ -83,7 +85,18 @@ STAR --runThreadN 4 \
 
 ---
 
-### 5. Feature Counting (featureCounts)
+### **5. Format Conversion**
+Convert alignment files (SAM to BAM), sort, and index them.
+```bash
+samtools view -@ 4 -Sb input.sam | samtools sort -o sorted_output.bam
+samtools index sorted_output.bam
+```
+- **Input**: SAM file.
+- **Output**: Sorted BAM file in the `Processed_BAM/` directory.
+
+---
+
+### 6. Feature Counting (featureCounts)
 Count aligned reads for each gene.
 ```bash
 featureCounts -p -O -T 4 \

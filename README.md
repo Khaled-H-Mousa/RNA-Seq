@@ -113,7 +113,7 @@ featureCounts -p -O -T 4 \
 ├── raw_data/               # Raw FASTQ files
 ├── qc_reports/             # Quality control reports
 ├── trimmed_reads/          # Trimmed paired and unpaired reads
-├── genome_index/           # Indexed genome (HISAT2/STAR)
+├── genome_index/           # Indexed genome (STAR)
 ├── aligned/                # Sorted BAM files from alignment
 ├── counts/                 # Gene-level read counts
 ```

@@ -48,7 +48,7 @@ trimmomatic PE -threads 4 -phred33 \
     sample_R1.fastq.gz sample_R2.fastq.gz \
     trimmed_R1_paired.fastq.gz trimmed_R1_unpaired.fastq.gz \
     trimmed_R2_paired.fastq.gz trimmed_R2_unpaired.fastq.gz \
-    ILLUMINACLIP:adapters.fa:2:30:10 SLIDINGWINDOW:4:20 MINLEN:25
+    SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15
 ```
 - **Input**: Raw FASTQ files.
 - **Output**: Trimmed paired and unpaired FASTQ files.
@@ -63,7 +63,7 @@ STAR --runThreadN 4 \
      --genomeDir genome_index/ \
      --genomeFastaFiles reference_genome.fasta \
      --sjdbGTFfile annotation.gtf \
-     --sjdbOverhang 100
+     --sjdbOverhang 99
 ```
 - **Input**: Reference genome (FASTA) and annotation (GTF).
 - **Output**: Genome index files in the `genome_index/` directory.
@@ -76,9 +76,10 @@ Align trimmed reads to the indexed reference genome.
 STAR --runThreadN 4 \
      --genomeDir genome_index/ \
      --readFilesIn trimmed_R1_paired.fastq.gz trimmed_R2_paired.fastq.gz \
-     --readFilesCommand zcat \
      --outFileNamePrefix aligned/sample_ \
-     --outSAMtype BAM SortedByCoordinate
+     --outSAMunmapped Within \
+     --outSAMattributes Standard
+
 ```
 - **Input**: Trimmed reads and genome index.
 - **Output**: Sorted BAM file in the `aligned/` directory.

@@ -1,6 +1,6 @@
 # RNA-Seq Analysis Pipeline
 
-This repository provides a comprehensive RNA-Seq analysis workflow, from raw data quality control to gene-level expression quantification. The pipeline ensures reproducibility and efficiency, using industry-standard tools and structured steps to process high-throughput sequencing data.
+RNA-Seq analysis is a powerful approach for studying transcriptomics, enabling the identification and quantification of RNA molecules in a sample. The process includes quality control of raw reads, trimming low-quality regions, aligning reads to a reference genome, and quantifying gene expression. This workflow provides insights into gene activity, alternative splicing, and differential expression, making it essential for understanding functional genomics and transcriptome dynamics.
 
 ---
 

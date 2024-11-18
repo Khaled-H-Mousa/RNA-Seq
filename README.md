@@ -105,7 +105,7 @@ featureCounts -p -O -T 4 \
     aligned/sample_Aligned.sortedByCoord.out.bam
 ```
 - **Input**: Sorted BAM file and annotation (GTF).
-- **Output**: Gene counts in `counts/example_featureCounts_output.txt`.
+- **Output**: Gene counts in `counts/` directory.
 
 ---
 ## Folder Structure

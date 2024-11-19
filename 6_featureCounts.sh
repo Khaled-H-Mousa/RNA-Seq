@@ -5,8 +5,8 @@
 # Define paths
 path=$(pwd) 
 ExperimentName="/${path}/raw"
-genomeName="${path}/Genome_Data/Sesamum_indicum.fasta"
-AnnotationFolder="${path}/Genome_Data/Sesamum_indicum.gtf"
+genomeName="${path}/Genome_Data/reference_genome.fasta"
+AnnotationFolder="${path}/Genome_Data/annotation.gtf"
 
 inputFolder="${path}/Processed_BAM"  # Path to the directory containing sorted BAM files
 outFolder="${path}/Count" # Output directory for featureCounts results
